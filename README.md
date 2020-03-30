@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*** FRONTEND CHECKLIST ***
 
-## Available Scripts
+ - reset.css
+ - change our title (in HTML)
 
-In the project directory, you can run:
+*package-json setup*
+ - add proxy
+ - add main
 
-### `npm start`
+*dependencies*
+ - axios
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*folder structure*
+- src/
+    - App.js => class component with state
+    - components/
+        - Button.js
+        - Tracker.js
+        - AddToTracker.js
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+*** BACKEND CHECKLIST***
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*dependencies*
+ - express
 
-### `npm run build`
+*server folder structure*
+ - server/
+    - index.js
+    - controller/
+        - trackerController.js
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*endpoints*
+ - get: 
+    "/api/water_tracker"
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+ - post: 
+    "/api/add_water"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ - put: 
+    "/api/update_water/:id"
 
-### `npm run eject`
+ - delete: 
+    "/api/delete_water/:id"
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+*data*
+ -How will we structure our data?
+ ```js
+ {
+     "id": 1
+     "goal": 64, 
+     "day": "Monday", 
+     "actualIntake": 64, 
+     }
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+What will the app do? 
+    - keep track of how much water I drink per day. 
+        - can get how much water i had for that day (GET)
+        - can add water (POST)
+                - can edit  (PUT) What am i editing?!!!  
+        - can remove water (DELETE)

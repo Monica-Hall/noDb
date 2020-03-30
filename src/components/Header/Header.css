@@ -1,0 +1,12 @@
+.header {
+    display: flex; 
+    justify-content: flex-start;
+    width: 100%; 
+    height: 75px; 
+    background: #7FCFCD; 
+    color: white; 
+    box-sizing: border-box;
+    font-stretch: ultra-expanded; 
+    font-weight: bolder;
+    font-size: xx-large;
+}

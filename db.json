@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1, 
+        "day": "Monday", 
+        "goal": 64, 
+        "actual": 64
+    }, 
+    {
+        "id": 2, 
+        "day": "Tuesday", 
+        "goal": 64, 
+        "actual": 56
+    }, 
+    {
+        "id": 3, 
+        "day": "Wednesday", 
+        "goal": 64, 
+        "actual": 48
+    }
+]

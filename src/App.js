@@ -1,26 +1,76 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import axios from "axios"
+import Card from "./components/Card"
+import AddWater from "./components/AddWater"
+import Footer from "./components/Footer/Footer"
+import Header from "./components/Header/Header"
 import './App.css';
 
-function App() {
+class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      entry: [] 
+    }
+
+    this.deleteWater = this.deleteWater.bind(this)
+    this.addWater = this.addWater.bind(this)
+    this.updateWater = this.updateWater.bind(this)
+
+  }
+
+componentDidMount(){
+  axios.get("api/water").then(res => {
+    this.setState({
+      entry: res.data
+    })
+  })
+  .catch(err => console.log(err))
+}
+
+deleteWater(id){
+  axios.delete(`/api/delete_water/${id}`).then(res => {
+    this.setState({
+      entry: res.data
+    })
+  })
+  .catch(err => console.log(err))
+}
+
+addWater(newWater){
+  axios.post(`/api/add_water`, {actual: newWater}).then(res => {
+    this.setState({
+      entry: res.data
+    })
+  })
+  .catch(err => console.log(err))
+}
+
+updateWater(id, newActual){
+  axios.put(`api/update_water/${id}`, {actual: newActual}).then(res => {
+    this.setState({
+      entry: res.data
+    })
+  })
+}
+
+
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <AddWater 
+      entry={this.state.entry} 
+      addWater={this.addWater}/>
+      <Card 
+      entry={this.state.entry}
+      deleteWater={this.deleteWater} 
+      updateWater={this.updateWater}
+      />
+      <Footer/>
     </div>
   );
+  }
 }
 
 export default App;
