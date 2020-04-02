@@ -11,7 +11,7 @@
 .drank h3 {
   color: #7FCFCD; 
   font-weight: 600;
-  margin: 25px; 
+  margin-left: 55px; 
 }
 
 .drank hr {
@@ -29,7 +29,6 @@
   margin: 30px;
 }
 
-
 /* ADD WATER COMPONENT  */
 
 .add-water {
@@ -40,7 +39,7 @@
   align-items: center;
   border-style: solid;
   border-color: black;
-  margin: 25px; /*this may need be removed*/
+  margin: 55px; /*this may need be removed*/
 }
 
 .add-header {
@@ -115,4 +114,5 @@
   width:85px; 
   border-radius: 10px;
   color: white; 
+  font-size: small;
 }
